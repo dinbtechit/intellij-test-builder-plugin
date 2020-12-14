@@ -1,6 +1,6 @@
 <idea-plugin>
     <id>com.github.dinbtechit.intellijtestbuilderplugin</id>
-    <name>intellij-test-builder-plugin</name>
+    <name>test-builder</name>
     <vendor>dinbtechit</vendor>
 
     <!-- Product and plugin compatibility requirements -->
@@ -10,6 +10,13 @@
     <extensions defaultExtensionNs="com.intellij">
         <applicationService serviceImplementation="com.github.dinbtechit.intellijtestbuilderplugin.services.MyApplicationService"/>
         <projectService serviceImplementation="com.github.dinbtechit.intellijtestbuilderplugin.services.MyProjectService"/>
+
+        <moduleBuilder builderClass="com.github.dinbtechit.intellijtestbuilderplugin.modules.MyModuleBuilder"
+                       id="DEMO_STEP"
+                       order="first"/>
+        <!--<moduleBuilder
+                builderClass="com.github.dinbtechit.intellijtestbuilderplugin.modules.MyModuleBuilder"/>-->
+        <moduleType id="Test_Recorder" implementationClass="com.github.dinbtechit.intellijtestbuilderplugin.modules.RootModule"/>
     </extensions>
 
     <applicationListeners>
